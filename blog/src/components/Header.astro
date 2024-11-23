@@ -4,36 +4,26 @@ import { SITE_TITLE } from '../consts';
 import {Switch} from './ui/switch';
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<Switch/>
+<header class="bg-white shadow-md px-4">
+	<nav class="grid grid-cols-3 items-center justify-items-center">
+		<h2 class="text-xl m-0"><a href="/" class="no-underline text-current">{SITE_TITLE}</a></h2>
+		<div class="">
+			<HeaderLink href="/" class="py-4 px-2 text-black border-b-4 border-transparent hover:text-gray-700 active:border-accent">
+				Home
+			</HeaderLink>
+			<HeaderLink href="/blog" class="py-4 px-2 text-black border-b-4 border-transparent hover:text-gray-700 active:border-accent">
+				Blog
+			</HeaderLink>
+		</div>
+		<div>
+			<Switch client:load/>
 		</div>
 	</nav>
 </header>
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 	}
 	nav a {
 		padding: 1em 0.5em;
