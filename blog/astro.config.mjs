@@ -1,22 +1,10 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-
-import sitemap from "@astrojs/sitemap";
-
-import react from "@astrojs/react";
-
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://testforge.blog",
-  integrations: [
-    mdx(),
-    sitemap(),
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-  ],
+	site: 'https://example.com',
+	integrations: [mdx(), sitemap()],
 });
