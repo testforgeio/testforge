@@ -1,0 +1,42 @@
+name: "[Blog] Build and Deploy"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+          cache-dependency-path: 'blog/pnpm-lock.yaml'
+      - name: Clone target repository
+        uses: actions/checkout@v4
+        with:
+          repository: 'testforgeio/testforge.blog'
+          path: 'blog/testforge.blog'
+          token:  ${{ secrets.BLOG_REPO_TOKEN }}
+      - name: Build
+        run: |
+          cd blog
+          pnpm install
+          pnpm build
+      - name: Deploy
+        run: |
+          cd blog
+          cp -r dist/* testforge.blog/
+          cd testforge.blog
+          git config --global user.name 'testforge'
+          git config --global user.email 'testforge.io@gmail.com'
+          git add .
+          git commit -m 'Deploy from source repo'
+          git push
