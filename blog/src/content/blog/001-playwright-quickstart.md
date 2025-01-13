@@ -1,163 +1,106 @@
 ---
 title: 'Playwright quickstart'
-description: 'Playwright End-to-End testing guide'
+description: 'A quickstart guide to setting up and using Playwright for end-to-end testing of web applications.'
 pubDate: 'Jul 08 2024'
 heroImage: '/blog-001-playwright-quickstart.png'
 ---
 
-Playwright is a modern, reliable testing framework for browser automation. It offers multi-browser support and robust tools for end-to-end testing of web applications. Let's get started with this quick guide.
+[Playwright](https://playwright.dev/) is the absolute GOAT in browser automation nowadays.
+While there are competitors like Cypress and WebdriverIO, choosing Playwright ensures you won't be disappointed. 
+It has everything you need for end-to-end testing of web applications and maybe even more. 
+Let's get started with this quick guide.
 
-### Set Up a Git Repository
+### Install Node.js
 
-First, create a new Git repository for your Playwright project:
+First of all, you need to have Node.js installed on your system. 
 
-* Create a new directory
-
-```bash
-mkdir playwright-quickstart && cd playwright-quickstart
-```
-
-* Initialize a Git repository
-
-```bash
-git init
-```
-
-* Create a `.gitignore` file for Node.js projects*
+The best way to handle this is by using [nvm](https://github.com/nvm-sh/nvm).
+nvm (Node Version Manager) - is a CLI tool that allows you to install and manage multiple versions of Node.js.
+Install the current LTS Node.js by using the `--lts` flag. Or you can install a specific version by adding the version number after `nvm install`.
 
 ```bash
-echo "node_modules/" >> .gitignore
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+source ~/.bashrc
+nvm install --lts
 ```
 
-* Commit your changes:
+Verify the installation by listing the installed versions and checking the Node.js version output.
 
 ```bash
-git add .gitignore
-git commit -m "Initialize git repository"
+nvm ls
+node --version
 ```
 
-### Initialize Playwright
+### Install package manager
 
-Install Playwright in your project
+In order to manage your project dependencies, you need to have a package manager installed.
+You can choose between [npm](https://docs.npmjs.com/), [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/).
+I will use npm in the scope of this article. You don't need to install it separately, it comes automatically as part of Node.js.
 
-* Initialize a Node.js project*
+### Install Playwright
+
+Playwright has `init` command that will create a basic folder structure for you.
 
 ```bash
-npm init -y
+mkdir playwright
+cd playwright
+npm init playwright@latest -y
 ```
 
-* Install Playwright
+* Choose the language you want to use for your tests?  
+`TypeScript` is recommended because it provides type checking and better code completion.
+* Choose the name of the folder where your tests will be stored?  
+Default is `tests`.
+* Do you want to add a [GitHub Actions](https://github.com/features/actions) workflow file?
+Makes sense if you are planning to run tests as part of CI/CD pipeline on GitHub.
+* Install Playwright for all three browsers (Chromium, Firefox, WebKit)?  
+Having browsers installed is required to run tests. Of course, you can install them later.
+However, if it is your first installation, it is better to have them installed right away.
+* Install Playwright operating system dependencies?  
+These dependencies include libraries and tools that are needed for browser automation and testing. Requires `sudo` or `root`. Press `N` and install them manually with the neccessary permissions.
 
-```bash
-npm install -D playwright
-```
-
-* Set up the configuration and directory structure
-
-```bash
-npx playwright install
-npx playwright init
-```
-
-This creates a basic folder structure
+You should see files and folders created in your project directory after answering the questions.
 
 ```text
-- tests/
-- playwright.config.ts
+playwright
+├─ .github
+│  └─ workflows
+│     └─ playwright.yml
+├─ node_modules
+├─ tests
+│  └─ example.spec.ts
+├─ tests-examples
+|  └─ demo-todo-app.spec.ts
+├─ .gitignore
+├─ package-lock.json
+├─ package.json
+└─ playwright.config.ts
 ```
 
-### Install Browsers
-
-Playwright works with Chromium, Firefox, and WebKit browsers.
-While these are automatically installed during initialization, you can reinstall them if needed.
+Install system dependencies using `sudo`
 
 ```bash
-npx playwright install
+sudo npx playwright install-deps
 ```
 
-### Add Tests
+### Run tests from terminal
 
-Create a simple test using JavaScript or TypeScript in the tests/ directory
+By default, Playwright executes tests across three browsers: Chromium, Firefox, and WebKit, utilizing three workers concurrently. This behavior can be customized in the playwright.config file. Tests are executed in headless mode, meaning the browsers will not open during test execution. Test results and logs are displayed in the terminal.
 
-```js
-import { test, expect } from '@playwright/test';
-
-test('Basic test', async ({ page }) => {
-  await page.goto('https://example.com');
-  const title = await page.title();
-  expect(title).toBe('Example Domain');
-});
-```
-
-Run your tests:
+`--headed` flag will open the browser during test execution.
 
 ```bash
-npx playwright test
+npx playwright test --headed
 ```
 
-### Locating Elements
+### Install VS Code extension
 
-Use Playwright's built-in waiting mechanism for reliable element interactions
+Playwright has an official [extension](https://playwright.dev/docs/getting-started-vscode)
+for Visual Studio Code that provides code snippets, IntelliSense, and debugging support. Install the extension from the vscode Extensions tab. After installation, you will be able to run tests directly from the editor.
 
-```js
-await page.locator('text=Submit').click(); *// Waits until the element is visible and stable*
-await expect(page.locator('#success-message')).toBeVisible(); *// Waits for a success message*
-```
+### Test Design Best Practices
 
-### Run Tests on Multiple Browsers
-
-Configure Playwright to run tests across different browsers
-
-```js
-import { defineConfig } from '@playwright/test';
-
-export default defineConfig({
-  projects: [
-    { name: 'Chromium', use: { browserName: 'chromium' } },
-    { name: 'Firefox', use: { browserName: 'firefox' } },
-    { name: 'WebKit', use: { browserName: 'webkit' } },
-  ],
-});
-```
-
-Run tests across all browsers:
-
-```bash
-npx playwright test --project=all
-```
-
-### Set Custom Timeouts
-
-Customize timeouts for different scenarios
-
-```js
-// Set default timeout for all actions
-test.use({ timeout: 15000 });
-// Set timeout for a specific action
-await page.waitForSelector('#element', { timeout: 5000 });
-```
-
-### Reports
-
-Generate HTML reports for better test result analysis
-
-```js
-import { defineConfig } from '@playwright/test';
-
-export default defineConfig({
-  reporter: [['html', { open: 'never' }]],
-});
-```
-
-After running the tests
-
-```bash
-npx playwright show-report
-```
-
-### Best Practices
-
-* **Focus on User-Visible Behavior**  
+* **Focus on User-Visible Behaviors**  
 Test what end-users see and interact with, avoiding implementation details.
 * **Test Isolation**  
 Ensure each test runs independently with its own resources (storage, session, data, etc.). Use before/after hooks for setup/teardown, but avoid excessive reliance on them. Consider using setup projects for shared setup tasks.
@@ -185,4 +128,4 @@ Use soft assertions to gather all failures within a single test run without imme
 ### Conclusion
 
 Playwright provides powerful tools for modern web application testing. With this guide, you've learned to set up a project,
-write tests, and implement best practices. Consider adding CI/CD pipelines to automate your testing process!
+run tests, and implement best practices. Consider adding CI/CD pipelines to automate your testing process!
