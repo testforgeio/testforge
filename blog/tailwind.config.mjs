@@ -2,14 +2,17 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ["selector", "[data-theme='dark']"],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkMode: ['selector'],
 	theme: {
-    	extend: {
-				fontFamily: {
-					sans: ['Roboto', ...defaultTheme.fontFamily.sans],
-				}
-    	}
+		screens: {
+      sm: "640px",
     },
+		extend: {
+			fontFamily: {
+				sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+			}
+		}
+	},
 	plugins: [],
 }
