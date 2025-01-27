@@ -1,20 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities; 
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 @theme {
-	--color-accent: #2337ff;
-	--color-accent-dark: #000d8a;
-	--color-black: 96, 115, 159;
-	--color-gray: 96, 115, 159;
-	--color-gray-gradient: rgba(var(--gray-light), 50%);
-	--color-green-light: 155, 181, 182;
-	--color-gray-light: 229, 233, 240;
-	--color-gray-dark: 34, 41, 57;
-	--color-blue-dark: 26, 46, 68;
-	--color-blue-gradient: rgba(var(--blue-light), 50%);
-	--shadow-box: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+
+  --font-sans: Roboto, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --color-accent: #2337ff;
+  --color-accent-dark: #000d8a;
+  --color-black: 96, 115, 159;
+  --color-gray: 96, 115, 159;
+  --color-gray-gradient: rgba(var(--gray-light), 50%);
+  --color-green-light: 155, 181, 182;
+  --color-gray-light: 229, 233, 240;
+  --color-gray-dark: 34, 41, 57;
+  --color-blue-dark: 26, 46, 68;
+  --color-blue-gradient: rgba(var(--blue-light), 50%);
+  --shadow-default: 0 2px 6px rgba(var(--gray), 25%),
+    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
 }
 
 @layer base {
