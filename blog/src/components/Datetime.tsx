@@ -104,7 +104,7 @@ const EditPost = ({ editPost, postId }: EditPostProps) => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icons-tabler-outline icon-tabler-edit inline-block !scale-90 fill-skin-base"
+            className="icon icon-tabler icons-tabler-outline icon-tabler-edit inline-block scale-90! fill-skin-base"
             aria-hidden="true"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
