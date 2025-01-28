@@ -1,18 +1,23 @@
 ---
-title: 'Playwright quickstart'
-description: 'A quickstart guide to setting up and using Playwright for end-to-end testing of web applications.'
-pubDate: 'Jul 08 2024'
-heroImage: '/blog-001-playwright-quickstart.png'
+slug: 001-playwright-quickstart
+title: Playwright quickstart
+description:
+  A quickstart guide to setting up and using Playwright for end-to-end testing of web applications.
+pubDatetime: 2024-07-08T15:22:00Z
+featured: false
+draft: false
+tags:
+  - playwright
 ---
 
 [Playwright](https://playwright.dev/) is the absolute GOAT in browser automation nowadays.
-While there are competitors like Cypress and WebdriverIO, choosing Playwright ensures you won't be disappointed. 
-It has everything you need for end-to-end testing of web applications and maybe even more. 
+While there are competitors like Cypress and WebdriverIO, choosing Playwright ensures you won't be disappointed.  
+It has everything you need for end-to-end testing of web applications and maybe even more.  
 Let's get started with this quick guide.
 
 ### Install Node.js
 
-First of all, you need to have Node.js installed on your system. 
+First of all, you need to have Node.js installed on your system.  
 
 The best way to handle this is by using [nvm](https://github.com/nvm-sh/nvm).
 nvm (Node Version Manager) - is a CLI tool that allows you to install and manage multiple versions of Node.js.
