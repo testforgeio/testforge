@@ -70,6 +70,24 @@ const structuredData = {
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <!-- Google Analytics -->
+    <script
+      is:inline
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3PGWEVMFNM"></script>
+    <script is:inline>
+      const consentGiven = localStorage.getItem("cookieConsent");
+      if (consentGiven !== "false") {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-3PGWEVMFNM");
+      }
+    </script>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
