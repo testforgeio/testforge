@@ -136,3 +136,5 @@ dist
 
 # jetbrains setting folder
 .idea/
+
+*.code-workspace
