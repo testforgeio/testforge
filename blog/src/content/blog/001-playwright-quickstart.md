@@ -9,18 +9,19 @@ draft: false
 tags:
   - playwright
 ---
+[Playwright](https://playwright.dev/) is a premier tool for browser automation.
+While there are competitors like Cypress and WebdriverIO, choosing Playwright ensures you won't be disappointed.
+It has everything you need for end-to-end testing of web applications and maybe even more.
 
-[Playwright](https://playwright.dev/) is the absolute GOAT in browser automation nowadays.
-While there are competitors like Cypress and WebdriverIO, choosing Playwright ensures you won't be disappointed.  
-It has everything you need for end-to-end testing of web applications and maybe even more.  
-Let's get started with this quick guide.
+Let’s dive into this quick guide and get you up to speed.
 
-### Install Node.js
+## Table of contents
 
-First of all, you need to have Node.js installed on your system.  
+## Install Node.js
 
-The best way to handle this is by using [nvm](https://github.com/nvm-sh/nvm).
-nvm (Node Version Manager) - is a CLI tool that allows you to install and manage multiple versions of Node.js.
+First of all, you need to have Node.js installed on your system. The best way to handle this is by using [nvm](https://github.com/nvm-sh/nvm).
+
+**nvm (Node Version Manager)** - is a CLI tool that allows you to install and manage multiple versions of Node.js.
 Install the current LTS Node.js by using the `--lts` flag. Or you can install a specific version by adding the version number after `nvm install`.
 
 ```bash
@@ -36,13 +37,13 @@ nvm ls
 node --version
 ```
 
-### Install package manager
+## Install package manager
 
 In order to manage your project dependencies, you need to have a package manager installed.
 You can choose between [npm](https://docs.npmjs.com/), [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/).
 I will use npm in the scope of this article. You don't need to install it separately, it comes automatically as part of Node.js.
 
-### Install Playwright
+## Install Playwright
 
 Playwright has `init` command that will create a basic folder structure for you.
 
@@ -52,16 +53,16 @@ cd playwright
 npm init playwright@latest -y
 ```
 
-* Choose the language you want to use for your tests?  
+* *Choose the language you want to use for your tests?*  
 `TypeScript` is recommended because it provides type checking and better code completion.
-* Choose the name of the folder where your tests will be stored?  
+* *Choose the name of the folder where your tests will be stored?*  
 Default is `tests`.
-* Do you want to add a [GitHub Actions](https://github.com/features/actions) workflow file?
+* *Do you want to add a [GitHub Actions](https://github.com/features/actions) workflow file?*  
 Makes sense if you are planning to run tests as part of CI/CD pipeline on GitHub.
-* Install Playwright for all three browsers (Chromium, Firefox, WebKit)?  
+* *Install Playwright for all three browsers (Chromium, Firefox, WebKit)?*  
 Having browsers installed is required to run tests. Of course, you can install them later.
 However, if it is your first installation, it is better to have them installed right away.
-* Install Playwright operating system dependencies?  
+* *Install Playwright operating system dependencies?*  
 These dependencies include libraries and tools that are needed for browser automation and testing. Requires `sudo` or `root`. Press `N` and install them manually with the neccessary permissions.
 
 You should see files and folders created in your project directory after answering the questions.
@@ -88,22 +89,29 @@ Install system dependencies using `sudo`
 sudo npx playwright install-deps
 ```
 
-### Run tests from terminal
+## Run tests from terminal
 
-By default, Playwright executes tests across three browsers: Chromium, Firefox, and WebKit, utilizing three workers concurrently. This behavior can be customized in the playwright.config file. Tests are executed in headless mode, meaning the browsers will not open during test execution. Test results and logs are displayed in the terminal.
+By default, Playwright executes tests across three browsers: Chromium, Firefox, and WebKit, utilizing three workers concurrently.
+This behavior can be customized in the `playwright.config` file.
 
-`--headed` flag will open the browser during test execution.
+Tests are executed in headless mode, meaning the browsers will not open during test execution.
+Test results and logs are displayed in the terminal. `--headed` flag will open the browser during test execution.
 
 ```bash
 npx playwright test --headed
 ```
 
-### Install VS Code extension
+## Install VSCode extension
 
 Playwright has an official [extension](https://playwright.dev/docs/getting-started-vscode)
-for Visual Studio Code that provides code snippets, IntelliSense, and debugging support. Install the extension from the vscode Extensions tab. After installation, you will be able to run tests directly from the editor.
+for Visual Studio Code that provides code snippets, IntelliSense, and debugging support.
+Install the extension from the VSCode Extensions tab. After installation, you will be able to run tests directly from the editor.
 
-### Test Design Best Practices
+## Test Design Best Practices
+
+It is essential to follow [best practices](https://playwright.dev/docs/best-practices) when setting up an end-to-end framework for your project.
+Whether you are a tester working on a dedicated QA team, adding tests in collaboration with developers, or working as a solo entrepreneur, you need to follow these guidelines.
+Otherwise, you will end up with flaky or brittle tests and spend more time maintaining them than receiving effective feedback.
 
 * **Focus on User-Visible Behaviors**  
 Test what end-users see and interact with, avoiding implementation details.
@@ -130,7 +138,7 @@ Utilize Playwright's parallel execution and sharding capabilities for faster tes
 * **Soft Assertions**  
 Use soft assertions to gather all failures within a single test run without immediately halting execution.
 
-### Conclusion
+## Conclusion
 
 Playwright provides powerful tools for modern web application testing. With this guide, you've learned to set up a project,
 run tests, and implement best practices. Consider adding CI/CD pipelines to automate your testing process!
