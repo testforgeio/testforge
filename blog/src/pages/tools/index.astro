@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Tag from "@components/Tag.astro";
+import getUniqueTags from "@utils/getUniqueTags";
+import { SITE } from "@config";
+import { Tabs, TabsList, TabsTrigger } from "@components/ui/tabs";
+
+const posts = await getCollection("blog");
+
+let tags = getUniqueTags(posts);
+---
+
+<Layout title={`Tools | ${SITE.title}`}>
+  <Header activeNav="tools" />
+  <Main pageTitle="Tools" pageDesc="Testere tools.">
+    <h1 class="">Tools</h1>
+    <Tabs>
+      <TabsList>
+        <TabsTrigger value="test">Test</TabsTrigger>
+        <TabsTrigger value="test2">Test2</TabsTrigger>
+      </TabsList>
+    </Tabs>
+  </Main>
+  <Footer />
+</Layout>
