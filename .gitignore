@@ -138,3 +138,7 @@ dist
 .idea/
 
 *.code-workspace
+
+target/
+build/
+allure-results/
