@@ -1,14 +1,16 @@
 ---
 slug: 001-playwright-quickstart
-title: Playwright quickstart
+title: Playwright QuickStart
 description:
-  A quickstart guide to setting up and using Playwright for end-to-end testing of web applications.
+  A step-by-step guide to setting up and using Playwright for End-to-End testing of web applications.
 pubDatetime: 2024-07-08T15:22:00Z
+ogImage: ../../assets/images/001-pw-vscode.png
 featured: false
 draft: false
 tags:
   - playwright
 ---
+
 [Playwright](https://playwright.dev/) is a premier tool for browser automation.
 While there are competitors like Cypress and WebdriverIO, choosing Playwright ensures you won't be disappointed.
 It has everything you need for end-to-end testing of web applications and maybe even more.
@@ -39,7 +41,7 @@ node --version
 
 ## Install package manager
 
-In order to manage your project dependencies, you need to have a package manager installed.
+In order to handle your project dependencies, you need to have a package manager installed.
 You can choose between [npm](https://docs.npmjs.com/), [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/).
 I will use npm in the scope of this article. You don't need to install it separately, it comes automatically as part of Node.js.
 
@@ -53,17 +55,28 @@ cd playwright
 npm init playwright@latest -y
 ```
 
+When you run it, it will guide you through a simple wizard to set up the project.
+
 * *Choose the language you want to use for your tests?*  
-`TypeScript` is recommended because it provides type checking and better code completion.
+  
+  `TypeScript` is recommended because it provides type checking and better code completion.
+
 * *Choose the name of the folder where your tests will be stored?*  
-Default is `tests`.
+
+  Default is `tests` but you can change it to `src/tests` or `spec` for example.
+
 * *Do you want to add a [GitHub Actions](https://github.com/features/actions) workflow file?*  
-Makes sense if you are planning to run tests as part of CI/CD pipeline on GitHub.
+  
+  Makes sense if you are planning to run tests as part of CI/CD pipeline on GitHub.
+
 * *Install Playwright for all three browsers (Chromium, Firefox, WebKit)?*  
-Having browsers installed is required to run tests. Of course, you can install them later.
-However, if it is your first installation, it is better to have them installed right away.
+  
+  Having browsers installed is required to run tests. Of course, you can install them later.
+  However, if it is your first installation, it is better to have them installed right away.
+
 * *Install Playwright operating system dependencies?*  
-These dependencies include libraries and tools that are needed for browser automation and testing. Requires `sudo` or `root`. Press `N` and install them manually with the neccessary permissions.
+  
+  These dependencies include libraries and tools that are needed for browser automation and testing. Requires `sudo` or `root`. Press `N` and install them manually with the neccessary permissions.
 
 You should see files and folders created in your project directory after answering the questions.
 
@@ -83,7 +96,7 @@ playwright
 └─ playwright.config.ts
 ```
 
-Install system dependencies using `sudo`
+Finally, install system dependencies using `sudo`
 
 ```bash
 sudo npx playwright install-deps
@@ -106,6 +119,16 @@ npx playwright test --headed
 Playwright has an official [extension](https://playwright.dev/docs/getting-started-vscode)
 for Visual Studio Code that provides code snippets, IntelliSense, and debugging support.
 Install the extension from the VSCode Extensions tab. After installation, you will be able to run tests directly from the editor.
+
+![Playwright VSCode extension](@assets/images/001-pw-vscode.png)
+
+## Key features
+
+* **Auto-waiting**: uses a smart waiting algorithm to wait for elements to be visible, enabled, or to contain specific text
+* **Multi-Browser Support**: supports Chromium, Firefox, and WebKit browsers
+* **Fast Execution**: runs tests across multiple browsers in parallel
+* **Intuitive API**: provides a simple and intuitive API for automating browsers
+* **Advanced Debugging Tools**: features tools like Playwright Inspector, Codegen, and Trace Viewer, which facilitate efficient debugging and test script generation
 
 ## Test Design Best Practices
 
@@ -141,4 +164,6 @@ Use soft assertions to gather all failures within a single test run without imme
 ## Conclusion
 
 Playwright provides powerful tools for modern web application testing. With this guide, you've learned to set up a project,
-run tests, and implement best practices. Consider adding CI/CD pipelines to automate your testing process!
+run tests, and implement best practices.
+
+Example project with tests is available [here](https://github.com/testforgeio/testforge/tree/main/examples/playwright-quickstart).

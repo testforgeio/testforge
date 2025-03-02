@@ -8,8 +8,8 @@ export const SITE: Site = {
   title: "testforge",
   ogImage: "image-social-default.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 3,
+  postPerIndex: 3,
+  postPerPage: 5,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   editPost: {
     url: "https://github.com/testforgeio/testforge/edit/main/blog/src/content/blog",
