@@ -4,6 +4,7 @@ title: Playwright QuickStart
 description:
   A step-by-step guide to setting up and using Playwright for End-to-End testing of web applications.
 pubDatetime: 2024-07-08T15:22:00Z
+ogImage: ../../assets/images/001-pw-vscode.png
 featured: false
 draft: false
 tags:
@@ -119,6 +120,8 @@ Playwright has an official [extension](https://playwright.dev/docs/getting-start
 for Visual Studio Code that provides code snippets, IntelliSense, and debugging support.
 Install the extension from the VSCode Extensions tab. After installation, you will be able to run tests directly from the editor.
 
+![Playwright VSCode extension](@assets/images/001-pw-vscode.png)
+
 ## Key features
 
 * **Auto-waiting**: uses a smart waiting algorithm to wait for elements to be visible, enabled, or to contain specific text
@@ -161,4 +164,6 @@ Use soft assertions to gather all failures within a single test run without imme
 ## Conclusion
 
 Playwright provides powerful tools for modern web application testing. With this guide, you've learned to set up a project,
-run tests, and implement best practices. Consider adding CI/CD pipelines to automate your testing process!
+run tests, and implement best practices.
+
+Example project with tests is available [here](https://github.com/testforgeio/testforge/tree/main/examples/playwright-quickstart).

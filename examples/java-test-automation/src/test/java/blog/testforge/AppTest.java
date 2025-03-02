@@ -23,7 +23,7 @@ import io.qameta.allure.TmsLink;
 
 public class AppTest extends BaseTest {
 
-    GoogleSearchSteps gogleSearchSteps;
+    GoogleSearchSteps googleSearchSteps;
     GoogleSearchPage googleSearchPage;
 
     @BeforeEach
@@ -31,7 +31,7 @@ public class AppTest extends BaseTest {
         context = browser.newContext();
         page = context.newPage();
         googleSearchPage = new GoogleSearchPage(page);
-        gogleSearchSteps = new GoogleSearchSteps("https://www.google.com/");
+        googleSearchSteps = new GoogleSearchSteps("https://www.google.com/");
     }
 
     @AfterEach
@@ -48,7 +48,7 @@ public class AppTest extends BaseTest {
     @TmsLink("TMS-456")
     void testGoogleSearch() {
         // API Test
-        var response = gogleSearchSteps.get();
+        var response = googleSearchSteps.get();
         assertTrue(response.body().asString().length() > 0);
         // UI Test
         googleSearchPage.open();

@@ -23,5 +23,4 @@ public class GoogleSearchPage {
         page.locator("textarea[name=q]").press("Enter");
         return page.locator("div.g");
     }
-
 }
