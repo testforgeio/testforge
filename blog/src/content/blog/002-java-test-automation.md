@@ -1,8 +1,8 @@
 ---
 slug: 002-java-test-automation
-title: 'Java test automation framework'
+title: 'Java Test Automation Framework'
 description: 'This document provides an overview of setting up a dedicated test automation framework using Java, Maven, Playwright, and Allure.'
-pubDatetime: 2025-03-02T23:17:00Z
+pubDatetime: 2025-03-02T21:17:00Z
 ogImage: ../../assets/images/002-java-test-automation.png
 featured: false
 draft: false

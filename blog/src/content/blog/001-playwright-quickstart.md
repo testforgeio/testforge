@@ -8,6 +8,7 @@ ogImage: ../../assets/images/001-pw-vscode.png
 featured: false
 draft: false
 tags:
+  - typescript
   - playwright
 ---
 
