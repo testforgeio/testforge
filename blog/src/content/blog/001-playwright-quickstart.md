@@ -123,8 +123,6 @@ Playwright has an official [extension](https://playwright.dev/docs/getting-start
 for Visual Studio Code that provides code snippets, IntelliSense, and debugging support.
 Install the extension from the VSCode Extensions tab. After installation, you will be able to run tests directly from the editor.
 
-![Playwright VSCode extension](@assets/images/001-pw-vscode.png)
-
 ## Key features
 
 * **Auto-waiting**: uses a smart waiting algorithm to wait for elements to be visible, enabled, or to contain specific text

@@ -71,18 +71,20 @@ const structuredData = {
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Consent -->
-    <script is:inline src='https://api.concord.tech/site-v1/874458f1-edb1-41e1-b4c4-acb7be471d40/site-client'></script>
+    <script
+      is:inline
+      type="text/javascript"
+      src="https://app.termly.io/resource-blocker/431b5595-112a-496c-bc7d-80096d76cd2d?autoBlock=on"
+    ></script>
 
     <!-- Google AdSense -->
-    <!-- Copied js scripts to public to avoud CORS error -->
-    <!-- https://partytown.qwik.dev/proxying-requests -->
-    <script is:inline type="text/partytown" src="/google-adsense.js"></script>
+    <script is:inline src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1449011647876445"
+     crossorigin="anonymous"></script>
 
     <!-- Google Analytics -->
     <script
       is:inline
-      type="text/partytown"
-      src="/google-analytics.js">
+      src="https://www.googletagmanager.com/gtag/js?id=G-3PGWEVMFNM">
     </script>
     <script is:inline type="text/partytown">
       window.dataLayer = window.dataLayer || [];

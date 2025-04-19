@@ -42,7 +42,7 @@ Below is a table summarizing key features across some of the most popular soluti
 | **Windsurf**             | Cascade<br/>Chat<br/>Tab<br/>Commands    | VSCode Fork<br/>IDEA Plugin | Two-week free trial<br/>Pro - $15<br/>Pro Ultimate - $60 | No |
 | **Copilot**              | Agent<br/>Edit<br/>Chat<br/>Tab       |  VSCode<br/>IDEA Plugin          | Pro -$10<br/>Pro+ - $39 | No |
 | **Void**                 | Edit<br/>Chat<br/>Tab        | VSCode Fork            | Open Source <sup>*</sup> | Yes |
-| **Continue.dev**         | Agent<br/>Edit<br/>Chat<br/>Tab | VSCode Fork<br/>IDEA Plugin | Solo - $0 <sup>*</sup><br/>Team - $10/developer | Yes |
+| **Continue.dev**         | Agent<br/>Edit<br/>Chat<br/>Tab | VSCode Plugin<br/>IDEA Plugin | Solo - $0 <sup>*</sup><br/>Team - $10/developer | Yes |
 
 <sup>*</sup> - While open source, requires separate purchase of API keys for language models
 
