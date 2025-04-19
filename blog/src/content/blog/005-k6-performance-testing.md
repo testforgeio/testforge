@@ -2,14 +2,15 @@
 slug: 005-k6-performance-testing
 title: 'Performance Testing using k6'
 description: 'Master performance testing with k6, the developer-friendly, open-source tool using JavaScript for powerful load generation. This practical guide covers installation, writing effective tests, setting performance goals, and integrating k6 into your CI/CD pipeline.'
-pubDatetime: 2025-04-18T10:13:00Z
-ogImage: ../../assets/images/003-k5-performance-testing.png
+pubDatetime: 2025-04-19T10:13:00Z
+ogImage: ../../assets/images/005-k6-performance-testing.png
 featured: false
 draft: false
 tags:
-  - k6
-  - pt
+  - performance
 ---
+
+![005-k6-performance-testing](@assets/images/005-k6-performance-testing.png)
 
 **In today's fast-paced digital world, application performance isn't just a feature—it's a necessity.** Slow load times, unresponsive APIs, and systems buckling under pressure can lead to lost revenue, frustrated users, and damaged reputations. Performance testing is crucial for ensuring your applications can handle expected user loads and maintain responsiveness under stress.
 
@@ -23,32 +24,37 @@ This guide will walk you through getting started with k6, writing effective test
 
 Before diving in, let's understand what makes k6 stand out:
 
-*   **Developer-Friendly:** Uses JavaScript (ES2015/ES6) for scripting, lowering the barrier to entry.
-*   **High Performance:** Written in Go, k6 is resource-efficient, allowing you to simulate significant load from a single machine.
-*   **Goal-Oriented Testing:** Built-in support for **Thresholds** lets you define specific performance goals (SLOs) for your tests (e.g., 95th percentile response time < 500ms, error rate < 1%).
-*   **CI/CD Native:** Designed for automation, easily integrating into pipelines (GitHub Actions, GitLab CI, Jenkins, etc.).
-*   **Extensible:** Supports various protocols (HTTP/1.1, HTTP/2, WebSockets, gRPC) and can be extended.
-*   **Grafana Ecosystem:** Integrates seamlessly with Grafana for visualization and analysis, especially with Grafana Cloud k6.
+* **Developer-Friendly:** Uses JavaScript (ES2015/ES6) for scripting, lowering the barrier to entry.
+* **High Performance:** Written in Go, k6 is resource-efficient, allowing you to simulate significant load from a single machine.
+* **Goal-Oriented Testing:** Built-in support for **Thresholds** lets you define specific performance goals (SLOs) for your tests (e.g., 95th percentile response time < 500ms, error rate < 1%).
+* **CI/CD Native:** Designed for automation, easily integrating into pipelines (GitHub Actions, GitLab CI, Jenkins, etc.).
+* **Extensible:** Supports various protocols (HTTP/1.1, HTTP/2, WebSockets, gRPC) and can be extended.
+* **Grafana Ecosystem:** Integrates seamlessly with Grafana for visualization and analysis, especially with Grafana Cloud k6.
 
 ## Installation
 
 Getting k6 running on your system is straightforward. Choose the method appropriate for your OS:
 
-*   **MacOS** (using Homebrew)
+* **MacOS** (using Homebrew)
+
     ```sh
     brew install k6
     ```
 
-*   **Windows** (using Chocolatey)
+* **Windows** (using Chocolatey)
+
     ```sh
     choco install k6
     ```
+
     or (using Winget)
+
     ```sh
     winget install k6 --source winget
     ```
 
-*   **Linux (Debian/Ubuntu)**
+* **Linux (Debian/Ubuntu)**
+
     ```sh
     sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
     echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
@@ -56,7 +62,8 @@ Getting k6 running on your system is straightforward. Choose the method appropri
     sudo apt-get install k6
     ```
 
-*   **Docker**
+* **Docker**
+
     ```sh
     docker pull grafana/k6
     # To run a test:
@@ -67,9 +74,7 @@ After installation, verify it by checking the version (your version might differ
 
 ```sh
 k6 version
-```
-```
-k6 v0.50.0 (commit/f9700f5746, go1.21.6, linux/amd64)
+# k6 v0.50.0 (commit/f9700f5746, go1.21.6, linux/amd64)
 ```
 
 ## Your First k6 Test
@@ -99,11 +104,11 @@ export default function () {
 
 Save this code as `test.js`. Let's break it down:
 
-1.  **`import` statements:** Load necessary k6 modules (`http` for requests, `check` for assertions, `sleep` for pauses).
-2.  **`export default function () { ... }`:** This is the main code block executed by each Virtual User (VU). k6 simulates multiple VUs running this function concurrently or sequentially.
-3.  **`http.get(...)`:** Sends an HTTP GET request to the specified URL.
-4.  **`check(res, { ... })`:** Defines one or more assertions on the response (`res`). Checks don't stop the test if they fail; they are recorded in the results. This is crucial for understanding success rates.
-5.  **`sleep(1)`:** Introduces a 1-second pause. This simulates user think time and prevents overwhelming the target system immediately.
+1. **`import` statements:** Load necessary k6 modules (`http` for requests, `check` for assertions, `sleep` for pauses).
+2. **`export default function () { ... }`:** This is the main code block executed by each Virtual User (VU). k6 simulates multiple VUs running this function concurrently or sequentially.
+3. **`http.get(...)`:** Sends an HTTP GET request to the specified URL.
+4. **`check(res, { ... })`:** Defines one or more assertions on the response (`res`). Checks don't stop the test if they fail; they are recorded in the results. This is crucial for understanding success rates.
+5. **`sleep(1)`:** Introduces a 1-second pause. This simulates user think time and prevents overwhelming the target system immediately.
 
 ## Running the Test
 
@@ -183,8 +188,8 @@ This simulates a more realistic pattern: users gradually arriving, staying for a
 
 k6 provides special functions for code that needs to run only once per test run:
 
-*   **`setup()`:** Runs *once* at the beginning of the test, before VUs start executing the `default` function. Ideal for preparing test data or fetching authentication tokens. Data returned from `setup` is passed as an argument to the `default` and `teardown` functions.
-*   **`teardown()`:** Runs *once* at the end of the test, after all VUs have finished. Useful for cleaning up test data or post-processing results.
+* **`setup()`:** Runs *once* at the beginning of the test, before VUs start executing the `default` function. Ideal for preparing test data or fetching authentication tokens. Data returned from `setup` is passed as an argument to the `default` and `teardown` functions.
+* **`teardown()`:** Runs *once* at the end of the test, after all VUs have finished. Useful for cleaning up test data or post-processing results.
 
 ```javascript
 import http from 'k6/http';
@@ -254,7 +259,8 @@ When you run this test, k6 will evaluate these thresholds against the collected 
 
 ### Authentication
 
-*   **Basic Auth:**
+* **Basic Auth:**
+
     ```javascript
     import http from 'k6/http';
     import encoding from 'k6/encoding';
@@ -272,7 +278,8 @@ When you run this test, k6 will evaluate these thresholds against the collected 
     }
     ```
 
-*   **Bearer Token:** (Often retrieved in `setup`)
+* **Bearer Token:** (Often retrieved in `setup`)
+
     ```javascript
     import http from 'k6/http';
 
@@ -321,7 +328,8 @@ export default function () {
 
 ### Working with Test Data
 
-*   **Reading Files:** Use the built-in `open()` function.
+* **Reading Files:** Use the built-in `open()` function.
+
     ```javascript
     // Read a text file (e.g., list of IDs)
     const userIds = open('./data/user_ids.txt').split('\n');
@@ -336,7 +344,8 @@ export default function () {
     }
     ```
 
-*   **Large Datasets (`SharedArray`):** For large data files, load them once into memory shared across all VUs to save resources.
+* **Large Datasets (`SharedArray`):** For large data files, load them once into memory shared across all VUs to save resources.
+
     ```javascript
     import { SharedArray } from 'k6/data';
     import http from 'k6/http';
@@ -359,11 +368,11 @@ export default function () {
 
 k6 provides a detailed summary in the console after each run. Key metrics include:
 
-*   `http_req_duration`: Time taken for requests (avg, min, max, p90, p95, p99).
-*   `http_req_failed`: Percentage of failed requests.
-*   `vus`: Number of active virtual users over time.
-*   `checks`: Pass/fail rate of your `check` assertions.
-*   `iterations`: Total number of times the `default` function executed.
+* `http_req_duration`: Time taken for requests (avg, min, max, p90, p95, p99).
+* `http_req_failed`: Percentage of failed requests.
+* `vus`: Number of active virtual users over time.
+* `checks`: Pass/fail rate of your `check` assertions.
+* `iterations`: Total number of times the `default` function executed.
 
 ### Custom Summary (`handleSummary`)
 
@@ -441,21 +450,21 @@ jobs:
 
 **Key Integration Points:**
 
-1.  **Trigger:** Decide when to run the tests (e.g., on every push to `main`, on pull requests, nightly).
-2.  **Run k6:** Use official actions (like `grafana/k6-action`) or simply install and run k6 via shell commands.
-3.  **Thresholds for Gates:** Rely on k6's exit code. If thresholds fail, k6 exits non-zero, failing the CI step automatically. This acts as a performance gate.
-4.  **Artifacts:** Store summary reports (JSON, HTML) as build artifacts for later analysis.
+1. **Trigger:** Decide when to run the tests (e.g., on every push to `main`, on pull requests, nightly).
+2. **Run k6:** Use official actions (like `grafana/k6-action`) or simply install and run k6 via shell commands.
+3. **Thresholds for Gates:** Rely on k6's exit code. If thresholds fail, k6 exits non-zero, failing the CI step automatically. This acts as a performance gate.
+4. **Artifacts:** Store summary reports (JSON, HTML) as build artifacts for later analysis.
 
 ## Best Practices for Effective k6 Testing
 
-1.  **Version Control Your Tests:** Treat test scripts like application code. Store them in Git.
-2.  **Use Realistic Scenarios:** Model user behavior with `stages`, `sleep`, and varied request types.
-3.  **Set Meaningful Thresholds:** Define clear performance goals based on requirements or historical baselines.
-4.  **Test in Appropriate Environments:** Aim for a staging environment that mirrors production as closely as possible.
-5.  **Don't Forget Dependencies:** Test the performance impact of databases, external APIs, and other services your application relies on.
-6.  **Monitor System Under Test:** Correlate k6 results with server-side metrics (CPU, memory, network, application logs) during the test.
-7.  **Start Simple, Iterate:** Begin with basic smoke tests and gradually build more complex scenarios.
-8.  **Leverage k6 Cloud:** For large-scale tests requiring distributed load generation or easier collaboration and result analysis, consider Grafana Cloud k6.
+1. **Version Control Your Tests:** Treat test scripts like application code. Store them in Git.
+2. **Use Realistic Scenarios:** Model user behavior with `stages`, `sleep`, and varied request types.
+3. **Set Meaningful Thresholds:** Define clear performance goals based on requirements or historical baselines.
+4. **Test in Appropriate Environments:** Aim for a staging environment that mirrors production as closely as possible.
+5. **Don't Forget Dependencies:** Test the performance impact of databases, external APIs, and other services your application relies on.
+6. **Monitor System Under Test:** Correlate k6 results with server-side metrics (CPU, memory, network, application logs) during the test.
+7. **Start Simple, Iterate:** Begin with basic smoke tests and gradually build more complex scenarios.
+8. **Leverage k6 Cloud:** For large-scale tests requiring distributed load generation or easier collaboration and result analysis, consider Grafana Cloud k6.
 
 ## Conclusion
 
