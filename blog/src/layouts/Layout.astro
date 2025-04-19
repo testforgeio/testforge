@@ -74,14 +74,15 @@ const structuredData = {
     <script is:inline src='https://api.concord.tech/site-v1/874458f1-edb1-41e1-b4c4-acb7be471d40/site-client'></script>
 
     <!-- Google AdSense -->
-    <script is:inline type="text/partytown" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1449011647876445"
-    crossorigin="anonymous"></script>
+    <!-- Copied js scripts to public to avoud CORS error -->
+    <!-- https://partytown.qwik.dev/proxying-requests -->
+    <script is:inline type="text/partytown" src="/google-adsense.js"></script>
 
     <!-- Google Analytics -->
     <script
       is:inline
       type="text/partytown"
-      src="https://www.googletagmanager.com/gtag/js?id=G-3PGWEVMFNM">
+      src="/google-analytics.js">
     </script>
     <script is:inline type="text/partytown">
       window.dataLayer = window.dataLayer || [];
