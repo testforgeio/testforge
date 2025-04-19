@@ -1,9 +1,9 @@
 ---
-slug: 003-k6-performance-testing
+slug: 005-k6-performance-testing
 title: 'Performance Testing using k6'
 description: 'Master performance testing with k6, the developer-friendly, open-source tool using JavaScript for powerful load generation. This practical guide covers installation, writing effective tests, setting performance goals, and integrating k6 into your CI/CD pipeline.'
 pubDatetime: 2025-04-18T10:13:00Z
-ogImage: ../../assets/images/003-k6-performance-testing.png
+ogImage: ../../assets/images/003-k5-performance-testing.png
 featured: false
 draft: false
 tags:
@@ -16,6 +16,8 @@ tags:
 Enter **k6**, an open-source load testing tool developed by Grafana Labs. Designed with developers and SREs in mind, k6 makes performance testing accessible, powerful, and easy to integrate into modern development workflows. It excels at testing APIs, microservices, and websites, using JavaScript for test scripting – a language familiar to many developers.
 
 This guide will walk you through getting started with k6, writing effective tests, integrating them into your CI/CD pipeline, and understanding the results.
+
+## Table of contents
 
 ## Why Choose k6?
 

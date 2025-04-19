@@ -1,9 +1,9 @@
 ---
-slug: 005-idea-ai-chats
+slug: 003-idea-ai-chats
 title: 'AI-powered Integrated Development Environments (IDEs)'
-description: ''
-pubDatetime: 2025-04-18T11:44:00Z
-ogImage: ../../assets/images/005-idea-ai-chats.png
+description: 'AI-powered IDEs higlights Covers Cursor, Windsurf, Void, Copilot, JetBrains AI Assistant, and Continue.dev.'
+pubDatetime: 2025-03-03T09:45:00Z
+ogImage: ../../assets/images/003-idea-ai-chats.png
 featured: false
 draft: false
 tags:
@@ -11,9 +11,13 @@ tags:
   - ai
 ---
 
+![idea-ai-chats](@assets/images/003-idea-ai-chats.png)
+
 Artificial intelligence is rapidly changing the way developers write and maintain code.
 Gone are the days when simple autocompletion features helped reduce typing; today's AI-powered integrated development environments (IDEs) and coding assistants understand entire codebases, generate complex code from plain language prompts, and even assist with debugging and refactoring.
 This transformation not only accelerates routine tasks but also allows developers to focus on design, architecture, and creative problem solving.
+
+## Table of contents
 
 ## Evolution of AI-Assisted Coding
 
@@ -23,7 +27,7 @@ Modern AI tools now offer the ability to explain code, suggest refactorings, and
 
 Developers are now experiencing IDEs where AI doesn't just speed up routine work, but increasingly acts as an intelligent **agent**.
 Instead of just responding to direct prompts, these agents can leverage broader context and tools using mechanisms like **Model Context Protocols (MCP)**.
-These protocols allow the AI to understand the project runtime information, use external tools, enabling more complex, multi-step tasks like implementing features based on issue descriptions or performing sophisticated refactoring across multiple files.
+This protocol allow the AI to understand the project runtime information, and use external tools, enabling more complex, multi-step tasks like implementing features based on issue descriptions or performing sophisticated refactoring across multiple files.
 This progress moves beyond simple assistance towards a collaborative partnership where human creativity is amplified by AI, enabling teams to develop software faster and more efficiently than ever before.
 
 ## Detailed Comparison of Leading Tools

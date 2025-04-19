@@ -12,6 +12,8 @@ tags:
   - allure
 ---
 
+![java-test-automation](@assets/images/002-java-test-automation.png)
+
 Test automation frameworks simplify the process of ensuring your applications work as expected. They help to collaborate with your team and increase confidence in your releases.
 In this guide, we'll build a robust dedicated test automation framework using Java, Maven, Playwright, and Allure.
 By the end, you'll also learn how to package your tests into a JAR file, and run them in Docker.

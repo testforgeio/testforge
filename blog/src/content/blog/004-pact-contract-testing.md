@@ -13,6 +13,8 @@ tags:
 
 Modern software architecture often relies on a distributed system of microservices and frontend applications communicating via APIs. While this offers flexibility and scalability, ensuring seamless integration between these independent components presents significant challenges. Traditional end-to-end integration tests become slow, brittle, and difficult to manage as the system grows.
 
+## Table of contents
+
 **How can teams confidently deploy services independently without breaking consumers? How can we get fast feedback on API compatibility *before* deploying to complex environments?**
 
 **Contract testing** provides a powerful solution by shifting integration checks earlier in the development lifecycle. Instead of testing entire deployed systems, contract testing verifies that each service (consumer or provider) adheres to a shared understanding – an **API contract** – defined by concrete interaction examples.
