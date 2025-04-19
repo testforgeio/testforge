@@ -70,6 +70,9 @@ const structuredData = {
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <!-- Consent -->
+    <script is:inline type="text/partytown" src='https://api.concord.tech/site-v1/874458f1-edb1-41e1-b4c4-acb7be471d40/site-client'></script>
+
     <!-- Google AdSense -->
     <script is:inline type="text/partytown" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1449011647876445"
     crossorigin="anonymous"></script>
@@ -81,15 +84,11 @@ const structuredData = {
       src="https://www.googletagmanager.com/gtag/js?id=G-3PGWEVMFNM">
     </script>
     <script is:inline type="text/partytown">
-      const consentGiven = localStorage.getItem("cookieConsent");
-      if (consentGiven !== "false") {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", "G-3PGWEVMFNM");
-      }
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3PGWEVMFNM');
     </script>
 
     <!-- Open Graph / Facebook -->

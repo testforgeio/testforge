@@ -1,5 +1,4 @@
 ---
-import CookieConsent from "./CookieConsent";
 import Hr from "./Hr.astro";
 import Socials from "./Socials.astro";
 
@@ -16,7 +15,6 @@ const { noMarginTop = false } = Astro.props;
   <Hr noPadding />
   <div class="flex flex-col items-center justify-between py-6">
     <div class="flex items-center justify-between w-full">
-      <CookieConsent client:load/>
       <Socials centered />
     </div>
     <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
