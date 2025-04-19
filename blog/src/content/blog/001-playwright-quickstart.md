@@ -12,6 +12,8 @@ tags:
   - playwright
 ---
 
+![pw-vscode](@assets/images/001-pw-vscode.png)
+
 [Playwright](https://playwright.dev/) is a premier tool for browser automation.
 While there are competitors like Cypress and WebdriverIO, choosing Playwright ensures you won't be disappointed.
 It has everything you need for end-to-end testing of web applications and maybe even more.
